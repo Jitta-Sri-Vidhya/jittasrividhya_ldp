@@ -1,8 +1,26 @@
 import React , {useState} from 'react'
-import {Paper, Slider} from '@mui/material';
+import {Card, Paper, Slider} from '@mui/material';
 import {createTheme, ThemeProvider, colors} from '@mui/material';
 import { Typo } from '../atoms/Typo';
 import { ButtonMui } from '../atoms/Button';
+import {styled} from '@mui/material';
+const StyledPaper = styled(Paper)(()=>({
+        height:'350px',
+        width:'800px',
+        margin: '10% 20%',
+        padding:'10px 15px 10px 15px'
+}))
+const StyledCard = styled(Card)(()=>({
+    margin: '20px 20px 1px 20px',
+    padding:'15px 20px',
+    gap:"520px",
+    display: 'flex',
+    flexDirection: 'row',
+}))
+const StyledPaperSX = {
+    height:'100px',
+    padding:'0px 50px'
+}
 const theme= createTheme({
     palette:{
         primary:{
@@ -19,32 +37,14 @@ export const UseState = () => {
     };
     
     return (
-    <Paper sx={{
-        height:'350px',
-        width:'800px',
-        margin: '10% 20%',
-        padding:'10px 15px 10px 15px'
-    }} elevation={2}>
-
+    <StyledPaper elevation={2}>
         <Typo Variant='h6' FontFamily='Roboto'>Amount Details</Typo>
-
-        <Paper sx={{
-            margin: '20px 20px 1px 20px',
-            padding:'15px 20px',
-            display: 'flex',
-            gap:62,
-            flexDirection: 'row',
-        }} elevation={2}>
-
+        <StyledCard elevation={2}>
             <Typo FontWeight='bold' Variant="h6">`${amount}`</Typo>
             <ButtonMui variant="outlined">Buy max</ButtonMui>
+        </StyledCard>
 
-        </Paper>
-
-        <Paper sx={{
-            height:'100px',
-            padding:'0px 50px'
-        }} elevation={0}>
+        <Paper sx={StyledPaperSX} elevation={0}>
             <ThemeProvider theme={theme}>
             <Slider
                 color="primary"
@@ -58,22 +58,12 @@ export const UseState = () => {
                 onChange={handleAmount}
             />
             </ThemeProvider>
-
         </Paper>
 
-        <Paper sx={{
-            margin: '2px 20px 20px 20px',
-            padding:'20px 20px',
-            display: 'flex',
-            gap:70,
-            flexDirection: 'row',
-        }} elevation={2}>
-
+        <StyledCard elevation={2}>
             <Typo Variant='h6' FontWeight= 'bold'>0.0234510</Typo>
             <Typo>BTC</Typo>
-
-        </Paper>
-      
-    </Paper>
+        </StyledCard>
+    </StyledPaper>
     )
 }
