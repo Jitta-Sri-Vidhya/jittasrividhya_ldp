@@ -3,13 +3,10 @@ import { List, ListItem, ListItemAvatar,ListItemText, Avatar} from '@mui/materia
 import { MuiTypography } from '../atoms/MuiTypography';
 import { Box } from '@mui/material';
 interface Props {
-    // PrimaryText: string
-    // SecondaryText: string
-    // Icon: React.ElementType
     Icon: JSX.Element
-    children?: JSX.Element|JSX.Element[];
     heading: string
     body: string
+    children?: JSX.Element|JSX.Element[];
   }
 export const MuiIconTypo = (props:Props) => {
     return (
@@ -28,4 +25,3 @@ export const MuiIconTypo = (props:Props) => {
     </List>
     )
 }
-//        <ListItemText  secondary={props.SecondaryText} primary={props.PrimaryText}/>
