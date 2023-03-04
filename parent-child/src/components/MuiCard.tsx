@@ -2,7 +2,6 @@ import {Paper, Box, Divider} from '@mui/material';
 import { MuiTypography } from '../atoms/MuiTypography';
 import { MuiButton } from '../atoms/MuiButton';
 import { MuiIcon } from '../atoms/MuiIcon';
-// import {Stepper, Step} from '@mui/material';
 import PaymentOutlinedIcon from '@mui/icons-material/PaymentOutlined';
 import DeliveryDiningIcon from '@mui/icons-material/DeliveryDining';
 import AccountBalanceWalletIcon from '@mui/icons-material/AccountBalanceWallet';
@@ -14,22 +13,25 @@ import TimelineContent from '@mui/lab/TimelineContent';
 import TimelineDot from '@mui/lab/TimelineDot';
 import {styled} from '@mui/material';
 
-const StyleTimeLineConnector = styled(TimelineConnector)(()=> (  //styled system approach 
+const StyleTimeLineConnector = styled(TimelineConnector)(()=> ( 
     {
         background: 'transparent',
         border: '1px dashed',
         width: '0px'
     }
 ))
-
-export const MuiCard = () => {
-    return (
-       <Paper sx={{
+const StyledPaper = styled(Paper)(()=>(
+    {
         width:'550px',
         height:'auto',
         margin:'30px 500px',
-        
-       }} elevation={6}>
+    }
+))
+
+export const MuiCard = () => {
+    
+    return (
+       <StyledPaper elevation={6}>
 
             <Box sx={{
                 padding:'10px 150px'
@@ -137,13 +139,13 @@ export const MuiCard = () => {
             </Box>
             </Box>
             <Box>
-                <MuiButton variantname='contained'>BUY NOW</MuiButton>
+                <MuiButton variantname='contained' sx={ {
+        width:'400px',
+        padding:'10px',
+        margin:'20px 70px',
+    }}>BUY NOW</MuiButton>
             </Box>
-       </Paper>
+       </StyledPaper>
     )
 }
 
-
-//PrimaryText='Payment method' SecondaryText='Visa credit ...8845'
-//                    <MuiIconTypo heading="Payment method" body="Visa credit ...8845"  Icon={<PaymentOutlinedIcon/>}></MuiIconTypo>
-// <Stack direction='row' sx={{ padding:'8px 20px' }}>
